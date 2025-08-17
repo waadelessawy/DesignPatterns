@@ -86,6 +86,11 @@ class Program
         //asusMonitor.assemble();
 
 
+        ///Why we use abstract not interface ?:
+        //Shared logic → An abstract class allows us to put common code (e.g., RenderUI) once and reuse it across all factories.
+        //Default implementations → Abstract classes can provide base behavior for some methods, while interfaces only define contracts.
+        //Extensibility → If we need to add new functionality later, it’s easier with an abstract class since we don’t break all existing factories.
+
         GUIFactory factory = new WinFactory();
         factory.RenderUI();
 

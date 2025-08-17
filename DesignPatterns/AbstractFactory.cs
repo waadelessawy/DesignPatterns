@@ -114,7 +114,6 @@ namespace DesignPatterns
         public abstract IButton CreateButton();
         public abstract ICheckbox CreateCheckbox();
 
-        // ✅ هنا نقدر نضيف method مشتركة فيها logic
         public void RenderUI()
         {
             var button = CreateButton();
