@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesignPatterns
+namespace DesignPatterns.CreationalPatterns
 {
     //Creational design pattern
     public sealed class Singleton
@@ -15,13 +15,13 @@ namespace DesignPatterns
 
         public static Singleton GetInstance()
         {
-            if(_instance == null)
+            if (_instance == null)
             {
                 _instance = new Singleton();
             }
             return _instance;
         }
-        
+
     }
 
 
@@ -38,11 +38,11 @@ namespace DesignPatterns
 
         public static SingletonThreadSafe GetInstance(string value)
         {
-            if(_instance == null)
+            if (_instance == null)
             {
                 lock (_lock)
                 {
-                    if(_instance == null)
+                    if (_instance == null)
                     {
                         _instance = new SingletonThreadSafe();
                         _instance.Value = value;

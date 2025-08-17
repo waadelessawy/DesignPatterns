@@ -1,4 +1,4 @@
-﻿using DesignPatterns;
+﻿using DesignPatterns.CreationalPatterns;
 using System;
 
 class Program
@@ -91,12 +91,29 @@ class Program
         //Default implementations → Abstract classes can provide base behavior for some methods, while interfaces only define contracts.
         //Extensibility → If we need to add new functionality later, it’s easier with an abstract class since we don’t break all existing factories.
 
-        GUIFactory factory = new WinFactory();
-        factory.RenderUI();
+        //GUIFactory factory = new WinFactory();
+        //factory.RenderUI();
 
-        factory = new MacFactory();
-        factory.RenderUI();
+        //factory = new MacFactory();
+        //factory.RenderUI();
 
 
+        //4- Builder
+
+        // Build a gaming computer
+        IComputerBuilder gamingBuilder = new GamingComputerBuilder();
+        ComputerDirector director = new ComputerDirector(gamingBuilder);
+        director.BuildComputer();
+        Computer gamingComputer = director.GetComputer();
+        Console.WriteLine("Gaming Computer:");
+        Console.WriteLine(gamingComputer);
+
+        // Build an office computer
+        IComputerBuilder officeBuilder = new OfficeComputerBuilder();
+        director = new ComputerDirector(officeBuilder);
+        director.BuildComputer();
+        Computer officeComputer = director.GetComputer();
+        Console.WriteLine("\nOffice Computer:");
+        Console.WriteLine(officeComputer);
     }
 }

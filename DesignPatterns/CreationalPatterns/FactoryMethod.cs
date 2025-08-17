@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DesignPatterns
+namespace DesignPatterns.CreationalPatterns
 {
     //Creational design pattern
 
@@ -55,7 +55,7 @@ namespace DesignPatterns
     {
         public override INotification CreateNotification()
         {
-            return new EmailNotification(); 
+            return new EmailNotification();
         }
     }
 
