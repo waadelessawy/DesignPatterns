@@ -56,15 +56,42 @@ class Program
 
         //3- Factory Method
 
-        NotificationCreator emailCreator = new EmailNotificatonCreator();
-        emailCreator.Notify("Email message content");
+        //NotificationCreator emailCreator = new EmailNotificatonCreator();
+        //emailCreator.Notify("Email message content");
 
 
-        NotificationCreator smsCreator = new SmsNotificationCreator();
-        smsCreator.Notify("SMS message content.");
+        //NotificationCreator smsCreator = new SmsNotificationCreator();
+        //smsCreator.Notify("SMS message content.");
 
-        NotificationCreator pushCreator = new PushNotificationCreator();
-        pushCreator.Notify("Push message content.");
+        //NotificationCreator pushCreator = new PushNotificationCreator();
+        //pushCreator.Notify("Push message content.");
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///
+
+        //4- Abstract Factory
+
+        //Company msi = new MsiManufacturer();
+        //Gpu msiGpu = msi.CreateGpu();
+        //DesignPatterns.Monitor msiMonitor = msi.CreateMonitor();
+
+        //msiGpu.assemble();
+        //msiMonitor.assemble();
+
+        //Company asus = new AsusManufacturer();
+        //Gpu asusGpu = asus.CreateGpu();
+        //DesignPatterns.Monitor asusMonitor = asus.CreateMonitor();
+
+        //asusGpu.assemble();
+        //asusMonitor.assemble();
+
+
+        GUIFactory factory = new WinFactory();
+        factory.RenderUI();
+
+        factory = new MacFactory();
+        factory.RenderUI();
+
 
     }
 }

@@ -73,8 +73,4 @@ namespace DesignPatterns
             return new PushNotification();
         }
     }
-    public class FactoryMethod
-    {
-
-    }
 }
