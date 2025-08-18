@@ -1,4 +1,5 @@
 ﻿using DesignPatterns.CreationalPatterns;
+using DesignPatterns.StructuralPatterns;
 using System;
 
 class Program
@@ -101,19 +102,30 @@ class Program
         //4- Builder
 
         // Build a gaming computer
-        IComputerBuilder gamingBuilder = new GamingComputerBuilder();
-        ComputerDirector director = new ComputerDirector(gamingBuilder);
-        director.BuildComputer();
-        Computer gamingComputer = director.GetComputer();
-        Console.WriteLine("Gaming Computer:");
-        Console.WriteLine(gamingComputer);
+        //IComputerBuilder gamingBuilder = new GamingComputerBuilder();
+        //ComputerDirector director = new ComputerDirector(gamingBuilder);
+        //director.BuildComputer();
+        //Computer gamingComputer = director.GetComputer();
+        //Console.WriteLine("Gaming Computer:");
+        //Console.WriteLine(gamingComputer);
 
-        // Build an office computer
-        IComputerBuilder officeBuilder = new OfficeComputerBuilder();
-        director = new ComputerDirector(officeBuilder);
-        director.BuildComputer();
-        Computer officeComputer = director.GetComputer();
-        Console.WriteLine("\nOffice Computer:");
-        Console.WriteLine(officeComputer);
+        //// Build an office computer
+        //IComputerBuilder officeBuilder = new OfficeComputerBuilder();
+        //director = new ComputerDirector(officeBuilder);
+        //director.BuildComputer();
+        //Computer officeComputer = director.GetComputer();
+        //Console.WriteLine("\nOffice Computer:");
+        //Console.WriteLine(officeComputer);
+
+        //5- Adapter
+
+        //Old UI
+        IMultiRestoApp multiRestoApp = new MultiRestoApp();
+        multiRestoApp.displayMenus(new XmlData());
+
+        //New UI
+        FancyUIServiceAdapter adapter = new FancyUIServiceAdapter();
+        adapter.displayMenus(new XmlData());
+        
     }
 }
