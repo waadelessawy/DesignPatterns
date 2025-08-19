@@ -120,12 +120,18 @@ class Program
         //5- Adapter
 
         //Old UI
-        IMultiRestoApp multiRestoApp = new MultiRestoApp();
-        multiRestoApp.displayMenus(new XmlData());
+        //IMultiRestoApp multiRestoApp = new MultiRestoApp();
+        //multiRestoApp.displayMenus(new XmlData());
 
-        //New UI
-        FancyUIServiceAdapter adapter = new FancyUIServiceAdapter();
-        adapter.displayMenus(new XmlData());
-        
+        ////New UI
+        //FancyUIServiceAdapter adapter = new FancyUIServiceAdapter();
+        //adapter.displayMenus(new XmlData());
+
+
+        //6- Decorator 
+        INotifier notifier = new FacebookDecorator(new WhatsAppDecorator(
+            new Notifier("Geekific")));
+
+        notifier.Send("Like and subscribe");
     }
 }
