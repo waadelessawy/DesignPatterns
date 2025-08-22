@@ -1,4 +1,5 @@
-﻿using DesignPatterns.CreationalPatterns;
+﻿using DesignPatterns.BehavioralPatterns;
+using DesignPatterns.CreationalPatterns;
 using DesignPatterns.StructuralPatterns;
 using System;
 
@@ -129,9 +130,66 @@ class Program
 
 
         //6- Decorator 
-        INotifier notifier = new FacebookDecorator(new WhatsAppDecorator(
-            new Notifier("Geekific")));
+        //INotifier notifier = new FacebookDecorator(new WhatsAppDecorator(
+        //    new Notifier("Geekific")));
 
-        notifier.Send("Like and subscribe");
+        //notifier.Send("Like and subscribe");
+
+        //7- Facade
+        //BuyCryprtoFacade buyCrypto = new BuyCryprtoFacade();
+        //buyCrypto.BuyCryptoCurrency(1000, "BTC");
+
+        //8- Proxy
+        //**Old Code
+
+        //IInternet internet = new RealInternet();
+        //internet.ConnectTo("google.com");
+
+
+        //The solution
+        //IInternet internet = new ProxyInternet();
+        //internet.ConnectTo("google.com");
+        //internet.ConnectTo("banned.com");
+
+        //IInternet i = new RealInternet();
+        //i.ConnectTo("banned.com");
+
+        //example 2
+        //Old
+        //VideoDownloader videoDownloader = new RealVideoDownloader();
+
+        //VideoDownloader videoDownloader = new proxyVideoDownloader();
+
+        //videoDownloader.GetVideo("Video 1");
+        //videoDownloader.GetVideo("Video 1");
+        //videoDownloader.GetVideo("Video 3");
+        //videoDownloader.GetVideo("Video 3");
+        //videoDownloader.GetVideo("Video 5");
+        //videoDownloader.GetVideo("Video 5");
+        //videoDownloader.GetVideo("Video 7");
+
+
+        //9- Observer
+
+        //Store store = new Store();
+        //store.GetService().Subscribe(new EmailMsgListener("g@gmail.com"));
+        //store.GetService().Subscribe(new EmailMsgListener("g@gmail.com"));
+        //store.GetService().Subscribe(new MobileMsgListener("g@gmail.com"));
+
+
+        //store.newItemPromotion();
+
+        //10- Strategy
+
+        PaymentContext context = new PaymentContext();
+
+        CreditCard card = new CreditCard("11111", "12/12", "123");
+        context.SetPaymentStrategy(new PaymentByCreditCard(card));
+        context.PayAmount(30);
+
+        context.SetPaymentStrategy(new PaymentByPayPal("test@email.com", "mypassword"));
+        context.PayAmount(200);
+
+
     }
 }

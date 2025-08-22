@@ -27,6 +27,7 @@ namespace DesignPatterns.StructuralPatterns
             return "w@facebook";
         }
     }
+    //Wrapped
     public class Notifier : INotifier
     {
         private readonly string username;
@@ -51,32 +52,34 @@ namespace DesignPatterns.StructuralPatterns
 
         
     }
+
+    //the wrapper of the initial notifier
     public abstract class BaseNotifierDecorator : INotifier
     {
-        private readonly INotifier wrapped;
+        private readonly INotifier notifier;
         protected readonly DatabaseService databaseService;
 
-        public BaseNotifierDecorator(INotifier wrapped)
+        public BaseNotifierDecorator(INotifier notifier)
         {
-            this.wrapped = wrapped;
+            this.notifier = notifier;
             databaseService = new DatabaseService();
         }
 
         public virtual void Send(string message)
         {
-            wrapped.Send(message);
+            notifier.Send(message);
         }
 
         public virtual string GetUserName()
         {
-            return wrapped.GetUserName();
+            return notifier.GetUserName();
         }
 
     }
 
     public class WhatsAppDecorator : BaseNotifierDecorator
     {
-        public WhatsAppDecorator(INotifier wrapped) : base(wrapped)
+        public WhatsAppDecorator(INotifier notifier) : base(notifier)
         {
             
         }
@@ -89,7 +92,7 @@ namespace DesignPatterns.StructuralPatterns
     }
     public class FacebookDecorator : BaseNotifierDecorator
     {
-        public FacebookDecorator(INotifier wrapped) : base(wrapped)
+        public FacebookDecorator(INotifier notifier) : base(notifier)
         {
 
         }
