@@ -181,14 +181,51 @@ class Program
 
         //10- Strategy
 
-        PaymentContext context = new PaymentContext();
+        //PaymentContext context = new PaymentContext();
 
-        CreditCard card = new CreditCard("11111", "12/12", "123");
-        context.SetPaymentStrategy(new PaymentByCreditCard(card));
-        context.PayAmount(30);
+        //CreditCard card = new CreditCard("11111", "12/12", "123");
+        //context.SetPaymentStrategy(new PaymentByCreditCard(card));
+        //context.PayAmount(30);
 
-        context.SetPaymentStrategy(new PaymentByPayPal("test@email.com", "mypassword"));
-        context.PayAmount(200);
+        //context.SetPaymentStrategy(new PaymentByPayPal("test@email.com", "mypassword"));
+        //context.PayAmount(200);
+
+
+        //11- Command
+
+        //TV tv = new TV();
+        //Stereo stereo = new Stereo();
+        //// Create command objects
+        //Command turnOnTVCommand = new TurnOnCommand(tv);
+        ////Command turnOffTVCommand = new TurnOffCommand(tv);
+        ////Command adjustVolumeStereoCommand = new AdjustVolumeCommand(stereo);
+        ////Command changeChannelTVCommand = new ChangeChannelCommand(tv);
+
+        //// Create remote control
+        //RemoteControl remote = new RemoteControl();
+
+        //// Set and execute commands
+        //remote.setCommand(turnOnTVCommand);
+        //remote.pressButton(); // Outputs: TV is now on
+
+        //remote.setCommand(adjustVolumeStereoCommand);
+        //remote.pressButton(); // Outputs: Volume adjusted
+
+        //remote.setCommand(changeChannelTVCommand);
+        //remote.pressButton(); // Outputs: Channel changed
+
+        //remote.setCommand(turnOffTVCommand);
+        //remote.pressButton(); // Outputs: TV is now off
+
+        //12- Mediator
+
+        AirTrafficControllerTower controllerTower = new AirTrafficControllerTower();
+
+        Airplane airplane1 = new CommercialAirplane(controllerTower);
+        Airplane airplane2 = new CommercialAirplane(controllerTower);
+
+        airplane1.RequestTakeOff();
+        airplane2.RequestLanding();
 
 
     }
