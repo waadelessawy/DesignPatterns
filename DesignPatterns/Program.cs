@@ -1,5 +1,6 @@
 ﻿using DesignPatterns.BehavioralPatterns;
 using DesignPatterns.CreationalPatterns;
+using DesignPatterns.Solid;
 using DesignPatterns.StructuralPatterns;
 using System;
 
@@ -219,13 +220,30 @@ class Program
 
         //12- Mediator
 
-        AirTrafficControllerTower controllerTower = new AirTrafficControllerTower();
+        //AirTrafficControllerTower controllerTower = new AirTrafficControllerTower();
 
-        Airplane airplane1 = new CommercialAirplane(controllerTower);
-        Airplane airplane2 = new CommercialAirplane(controllerTower);
+        //Airplane airplane1 = new CommercialAirplane(controllerTower);
+        //Airplane airplane2 = new CommercialAirplane(controllerTower);
 
-        airplane1.RequestTakeOff();
-        airplane2.RequestLanding();
+        //airplane1.RequestTakeOff();
+        //airplane2.RequestLanding();
+
+
+        //Open Closed princible
+
+       // IShape[] shapes = new IShape[]
+       //{
+       //     new Rectangle { Width = 10, Height = 5 },
+       //     new Circle { Radius = 3 },
+       //     new Triangle { Base = 6, Height = 4 }
+       //};
+
+        //IShape rec = new Rectangle() { Width = 10, Height = 5 };
+
+        //Console.WriteLine(rec.CalculateArea());
+
+        //AreaCalculator calculator = new AreaCalculator();
+        //Console.WriteLine("Total Area = " + calculator.TotalArea(shapes));
 
 
     }
